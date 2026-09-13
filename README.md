@@ -8,7 +8,7 @@ Aplicación web para extraer las guías y cantidades de bultos de archivos PDF d
 
 **URL de despliegue:** https://jepp24.github.io/Sistema-Dian/
 
-El despliegue se ejecuta automáticamente cada vez que haces push a la rama `main`. Puedes ver el progreso en la pestaña **Actions** de tu repositorio.
+El despliegue se ejecuta automáticamente en cada push a `main`.
 
 ## Ejecutar localmente
 
@@ -21,13 +21,6 @@ python app.py
 
 La aplicación queda disponible en `http://localhost:5000`.
 
-## Publicar con una URL permanente (alternativo)
+## Despliegue alternativo con Render
 
-El archivo `render.yaml` deja configurado un servicio web en Render. Para publicarlo:
-
-1. Sube este repositorio a GitHub.
-2. En Render, selecciona **New > Blueprint** y conecta el repositorio.
-3. Confirma el servicio `sistema-dian` y espera el despliegue.
-4. Render entregará una URL `onrender.com`. En **Settings > Custom Domains** puedes conectar tu dominio propio.
-
-El plan `starter` mantiene el servicio activo. Un dominio propio debe registrarse con un proveedor de dominios y apuntarse a Render mediante DNS.
+El archivo `render.yaml` permite desplegar en Render.com para producción.
