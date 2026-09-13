@@ -3,73 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Extracción PDF DIAN</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Sistema DIAN - Extractor de Guías</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="background-animation"></div>
-    
     <div class="container">
         <header>
-            <h1>Extracción de Datos PDF</h1>
-            <p>Procesa tus documentos DIAN y extrae la información de las guías AMZPSR0 rápidamente.</p>
+            <h1>🚚 Sistema DIAN</h1>
+            <p class="subtitle">Extrae guías y bultos de archivos PDF</p>
         </header>
 
         <main>
-            <div class="upload-box" id="drop-area">
-                <input type="file" id="fileElem" accept="application/pdf" style="display:none;">
-                <div class="upload-content">
-                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                        <polyline points="17 8 12 3 7 8"></polyline>
-                        <line x1="12" y1="3" x2="12" y2="15"></line>
-                    </svg>
-                    <p>Arrastra tu archivo PDF aquí o <span>haz clic para buscar</span></p>
-                    <span class="file-hint">Soporta PDFs de más de 1000 páginas</span>
+            <section class="info-section">
+                <h2>¿Qué hace esta aplicación?</h2>
+                <ul>
+                    <li>✅ Lee archivos PDF de DIAN</li>
+                    <li>✅ Extrae guías (formato AMZPSR0XXXXX)</li>
+                    <li>✅ Extrae cantidad de bultos remitidos y recibidos</li>
+                    <li>✅ Genera reporte en Excel descargable</li>
+                </ul>
+            </section>
+
+            <section class="upload-section">
+                <h2>Subir archivo PDF</h2>
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <div class="file-input-wrapper">
+                        <input type="file" id="fileInput" name="file" accept=".pdf" required>
+                        <label for="fileInput" class="file-label">
+                            📁 Selecciona un archivo PDF
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-upload">Procesar PDF</button>
+                </form>
+
+                <div id="loading" class="loading" style="display:none;">
+                    <p>⏳ Procesando archivo...</p>
+                    <div class="spinner"></div>
                 </div>
-            </div>
 
-            <div id="file-info" class="file-info hidden">
-                <div class="file-details">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                        <polyline points="14 2 14 8 20 8"></polyline>
-                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                        <polyline points="10 9 9 9 8 9"></polyline>
-                    </svg>
-                    <span id="filename">documento.pdf</span>
+                <div id="result" class="result-section" style="display:none;">
+                    <div id="resultContent"></div>
                 </div>
-                <button id="process-btn" class="primary-btn">Procesar Documento</button>
-            </div>
 
-            <div id="loading" class="loading-state hidden">
-                <div class="spinner"></div>
-                <p>Analizando páginas y extrayendo datos...</p>
-                <span>Esto puede tomar unos minutos dependiendo del tamaño del PDF.</span>
-            </div>
-
-            <div id="result" class="result-state hidden">
-                <div class="success-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                    </svg>
+                <div id="error" class="error-section" style="display:none;">
+                    <div id="errorContent"></div>
                 </div>
-                <h3>¡Procesamiento Completado!</h3>
-                <p id="records-count">Se encontraron X registros.</p>
-                <a id="download-btn" href="#" class="primary-btn download">Descargar Excel</a>
-                <button id="reset-btn" class="secondary-btn">Procesar otro archivo</button>
-            </div>
+            </section>
 
-            <div id="error" class="error-state hidden">
-                <p id="error-message">Ha ocurrido un error al procesar el archivo.</p>
-                <button id="retry-btn" class="secondary-btn">Intentar de nuevo</button>
-            </div>
+            <section class="help-section">
+                <h2>📋 Instrucciones</h2>
+                <ol>
+                    <li>Selecciona un archivo PDF de DIAN</li>
+                    <li>Haz clic en "Procesar PDF"</li>
+                    <li>Espera a que se complete la extracción</li>
+                    <li>Descarga el archivo Excel con los resultados</li>
+                </ol>
+            </section>
+
+            <footer class="footer">
+                <p>Sistema DIAN v1.0 | Extractor de Guías y Bultos</p>
+            </footer>
         </main>
     </div>
 
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        const uploadForm = document.getElementById('uploadForm');
+        const fileInput = document.getElementById('fileInput');
+        const loading = document.getElementById('loading');
+        const result = document.getElementById('result');
+        const error = document.getElementById('error');
+
+        uploadForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (!fileInput.files.length) {
+                showError('Por favor selecciona un archivo PDF');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+
+            loading.style.display = 'block';
+            result.style.display = 'none';
+            error.style.display = 'none';
+
+            try {
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                loading.style.display = 'none';
+
+                if (response.ok) {
+                    showResult(data);
+                    fileInput.value = '';
+                } else {
+                    showError(data.error || 'Error al procesar el archivo');
+                }
+            } catch (err) {
+                loading.style.display = 'none';
+                showError('Error de conexión: ' + err.message);
+            }
+        });
+
+        function showResult(data) {
+            const resultContent = document.getElementById('resultContent');
+            resultContent.innerHTML = `
+                <div class="success-box">
+                    <h3>✅ ¡Éxito!</h3>
+                    <p><strong>Registros encontrados:</strong> ${data.records_found}</p>
+                    <p><strong>Tiempo de procesamiento:</strong> ${data.processing_time}s</p>
+                    <a href="${data.excel_url}" class="btn-download">📥 Descargar Excel</a>
+                </div>
+            `;
+            result.style.display = 'block';
+        }
+
+        function showError(message) {
+            const errorContent = document.getElementById('errorContent');
+            errorContent.innerHTML = `
+                <div class="error-box">
+                    <h3>⚠️ Error</h3>
+                    <p>${message}</p>
+                </div>
+            `;
+            error.style.display = 'block';
+        }
+    </script>
 </body>
 </html>
