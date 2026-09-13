@@ -17,19 +17,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Create build directory
-      run: mkdir -p "sistema Dian/dist"
-    
-    - name: Create HTML file
-      run: |
-        echo '<!DOCTYPE html><html><head><title>Sistema DIAN</title><style>body{font-family:Arial;background:#f5f5f5}.container{max-width:600px;margin:50px auto;background:white;padding:30px;border-radius:8px}h1{color:#333}.success{color:green;font-weight:bold}</style></head><body><div class="container"><h1>📄 Sistema DIAN</h1><p class="success">✅ Desplegado en GitHub Pages</p><p>URL: <a href="https://jepp24.github.io/Sistema-Dian/">https://jepp24.github.io/Sistema-Dian/</a></p></div></body></html>' > "sistema Dian/dist/index.html"
-    
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v2
-      with:
-        path: 'sistema Dian/dist'
-    
-    - name: Deploy
-      uses: actions/deploy-pages@v2
+      - uses: actions/checkout@v4
+
+      - name: Create build directory
+        run: mkdir -p "sistema Dian/dist"
+
+      - name: Create HTML file
+        run: |
+          echo '<!DOCTYPE html><html><head><title>Sistema DIAN</title><style>body{font-family:Arial;background:#f5f5f5}.container{max-width:600px;margin:50px auto;background:white;padding:30px;border-radius:8px}h1{color:#333}.success{color:green;font-weight:bold}</style></head><body><div class="container"><h1>📄 Sistema DIAN</h1><p class="success">✅ Desplegado en GitHub Pages</p><p>URL: <a href="https://jepp24.github.io/Sistema-Dian/">https://jepp24.github.io/Sistema-Dian/</a></p></div></body></html>' > "sistema Dian/dist/index.html"
+
+      - name: Upload pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'sistema Dian/dist'
+
+      - name: Deploy
+        uses: actions/deploy-pages@v3
