@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: sistema-dian
+    runtime: python
+    rootDir: sistema Dian
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT app:app
+    plan: starter
+    healthCheckPath: /
+    autoDeploy: true

@@ -1,0 +1,61 @@
+=== PAGE 1 LAYOUT = TRUE ===
+                                                                                    
+                                                                      1314          
+                                                                                    
+                                                                                    
+                                                                                    
+                                                              Página 2 de 947 Hoja No. 2
+    Espacio reservado para la DIAN           4. Número de formulario 13148085965034 
+                                                                                    
+                                                                                    
+                                                                                    
+                                                                                    
+                                                                                    
+                                   Datos documentos de transporte recibido          
+     38. No. Formato      39. No. Documento transporte 40. Fecha                    
+                116673461542619 AMZPSR026678014 2 0 2  6 0  9  0 8                  
+     41. Peso en Kg. remitido 42. Peso en Kg. recibido 43. Exceso $ 44. Defecto $   
+                       0.37                  0                 0               0.37 
+    1 4 re 5 m . C iti a d n o tidad de bultos 4 re 6 c . i b C id a o ntidad de bultos 47. Sobrante 48. Faltante 54. No. Manifiesto 55. Fecha manifiesto
+               1           0           0            1                               
+     49. Observaciones                                                              
+                                                                                    
+     51. Ultima planilla ? Cód. 52. Dato manifestadfo 53. Justificación             
+     38. No. Formato      39. No. Documento transporte 40. Fecha                    
+                116673461542626 AMZPSR026676719 2 0 2  6 0  9  0 8                  
+     41. Peso en Kg. remitido 42. Peso en Kg. recibido 43. Exceso $ 44. Defecto $   
+                       0.27                  0                 0               0.27 
+    2 4 re 5 m . C iti a d n o tidad de bultos 4 re 6 c . i b C id a o ntidad de bultos 47. Sobrante 48. Faltante 54. No. Manifiesto 55. Fecha manifiesto
+               1           0           0            1                               
+     49. Observaciones                                                              
+                                                                                    
+     51. Ultima planilla ? Cód. 52. Dato manifestadfo 53. Justificación             
+                                                                                    
+     38. No. Formato      39. No. Documento transporte 40. Fecha                    
+                116673461542633 AMZPSR026676175 2 0 2  6 0  9  0 8                  
+     41. Peso en Kg. remitido 42. Peso en Kg. recibido 43. Exceso $ 44. Defecto $   
+                       0.18                  0                 0               0.18 
+    3 4 re 5 m . C iti a d n o tidad de bultos 4 re 6 c . i b C id a o ntidad de bultos 47. Sobrante 48. Faltante 54. No. Manifiesto 55. Fecha manifiesto
+               1           0           0            1                               
+     49. Observaciones                                                              
+     51. Ultima planilla ? Cód. 52. Dato manifestadfo 53. Justificación             
+                                                                                    
+     38. No. Formato      39. No. Documento transporte 40. Fecha                    
+                116673461542640 AMZPSR026676210 2 0 2  6 0  9  0 8                  
+     41. Peso en Kg. remitido 42. Peso en Kg. recibido 43. Exceso $ 44. Defecto $   
+                       0.21                  0                 0               0.21 
+    4 4 re 5 m . C iti a d n o tidad de bultos 4 re 6 c . i b C id a o ntidad de bultos 47. Sobrante 48. Faltante 54. No. Manifiesto 55. Fecha manifiesto
+               1           0           0            1                               
+     49. Observaciones                                                              
+     51. Ultima planilla ? Cód. 52. Dato manifestadfo 53. Justificación             
+                                                                                    
+     38. No. Formato      39. No. Documento transporte 40. Fecha                    
+                116673461542658 AMZPSR026674833 2 0 2  6 0  9  0 8                  
+     41. Peso en Kg. remitido 42. Peso en Kg. recibido 43. Exceso $ 44. Defecto $   
+                       0.36                  0                 0               0.36 
+    5 4 re 5 m . C iti a d n o tidad de bultos 4 re 6 c . i b C id a o ntidad de bultos 47. Sobrante 48. Faltante 54. No. Manifiesto 55. Fecha manifiesto
+               1           0           0            1                               
+     49. Observaciones                                                              
+     51. Ultima planilla ? Cód. 52. Dato manifestadfo 53. Justificación             
+                                                                                    
+                                                                                    
