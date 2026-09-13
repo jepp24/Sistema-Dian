@@ -19,17 +19,12 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
-    - name: Setup Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.11'
-    
     - name: Create build directory
       run: mkdir -p "sistema Dian/dist"
     
     - name: Create HTML
       run: |
-        cat > "sistema Dian/dist/index.html" << 'EOF'
+        cat > "sistema Dian/dist/index.html" << 'ENDHTML'
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +44,7 @@ jobs:
     </div>
 </body>
 </html>
-        EOF
+ENDHTML
     
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v2
