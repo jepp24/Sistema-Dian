@@ -22,10 +22,10 @@ jobs:
     - name: Create build directory
       run: mkdir -p "sistema Dian/dist"
     
-    - name: Create HTML
+    - name: Create HTML file
       run: |
-        cat > "sistema Dian/dist/index.html" << 'ENDHTML'
-<!DOCTYPE html>
+        python3 << 'PYEOF'
+        html_content = '''<!DOCTYPE html>
 <html>
 <head>
     <title>Sistema DIAN</title>
@@ -43,8 +43,11 @@ jobs:
         <p>URL: <a href="https://jepp24.github.io/Sistema-Dian/">https://jepp24.github.io/Sistema-Dian/</a></p>
     </div>
 </body>
-</html>
-ENDHTML
+</html>'''
+        with open('sistema Dian/dist/index.html', 'w', encoding='utf-8') as f:
+            f.write(html_content)
+        print("HTML file created successfully")
+        PYEOF
     
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v2
